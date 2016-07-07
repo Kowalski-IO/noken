@@ -1,0 +1,18 @@
+server:
+#  softNofileLimit: 1000
+#  hardNofileLimit: 1000
+  applicationConnectors:
+    - type: http
+      port: 7070
+  gzip:
+    enabled: false
+
+secretKey: ldskhdoiusodnosd8y08
+
+registrationCode: abc123
+
+# Logging settings.
+logging:
+
+  # The default level of all loggers. Can be OFF, ERROR, WARN, INFO, DEBUG, TRACE, or ALL.
+  level: INFO
