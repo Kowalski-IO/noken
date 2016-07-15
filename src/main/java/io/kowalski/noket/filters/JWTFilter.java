@@ -1,4 +1,4 @@
-package io.kowalski.nekot.filters;
+package io.kowalski.noket.filters;
 
 import java.io.IOException;
 
@@ -13,6 +13,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.Provider;
 
 import com.google.common.net.HttpHeaders;
+import com.hazelcast.core.HazelcastInstance;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
@@ -22,13 +23,15 @@ import io.jsonwebtoken.Jwts;
 @Provider
 public class JWTFilter implements ContainerRequestFilter {
 
+    private final HazelcastInstance hazelcast;
     private final String secretKey;
 
     @Context
     private ResourceInfo resourceInfo;
 
     @Inject
-    public JWTFilter(@Named("secretKey") final String secretKey) {
+    public JWTFilter(final HazelcastInstance hazelcast, @Named("secretKey") final String secretKey) {
+        this.hazelcast = hazelcast;
         this.secretKey = secretKey;
     }
 

@@ -1,4 +1,4 @@
-package io.kowalski.nekot.filters;
+package io.kowalski.noket.filters;
 
 import java.io.IOException;
 

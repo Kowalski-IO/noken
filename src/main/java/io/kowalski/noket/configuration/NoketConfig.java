@@ -1,10 +1,10 @@
-package io.kowalski.nekot.configuration;
+package io.kowalski.noket.configuration;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.dropwizard.Configuration;
 
-public class NekotConfig extends Configuration {
+public class NoketConfig extends Configuration {
 
     @JsonProperty("secretKey")
     private String secretKey;

@@ -1,4 +1,4 @@
-package io.kowalski.nekot.filters;
+package io.kowalski.noket.filters;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -10,6 +10,6 @@ import javax.ws.rs.NameBinding;
 @NameBinding
 @Target({ ElementType.TYPE, ElementType.METHOD })
 @Retention(value = RetentionPolicy.RUNTIME)
-public @interface JWT {
+public @interface RegistrationKey {
 
 }

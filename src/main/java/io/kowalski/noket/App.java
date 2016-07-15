@@ -1,14 +1,14 @@
-package io.kowalski.nekot;
+package io.kowalski.noket;
 
 import com.hubspot.dropwizard.guicier.GuiceBundle;
 
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
-import io.kowalski.nekot.configuration.NekotConfig;
-import io.kowalski.nekot.configuration.NekotModule;
+import io.kowalski.noket.configuration.NoketConfig;
+import io.kowalski.noket.configuration.NoketModule;
 
-public class App extends Application<NekotConfig> {
+public class App extends Application<NoketConfig> {
 
     public App() {
 
@@ -23,15 +23,15 @@ public class App extends Application<NekotConfig> {
     }
 
     @Override
-    public final void initialize(final Bootstrap<NekotConfig> bootstrap) {
-        final GuiceBundle<NekotConfig> guiceBundle = GuiceBundle.defaultBuilder(NekotConfig.class)
-                .modules(new NekotModule()).build();
+    public final void initialize(final Bootstrap<NoketConfig> bootstrap) {
+        final GuiceBundle<NoketConfig> guiceBundle = GuiceBundle.defaultBuilder(NoketConfig.class)
+                .modules(new NoketModule()).build();
 
         bootstrap.addBundle(guiceBundle);
     }
 
     @Override
-    public final void run(final NekotConfig configuration, final Environment environment)
+    public final void run(final NoketConfig configuration, final Environment environment)
             throws Exception, RuntimeException {
 
     }

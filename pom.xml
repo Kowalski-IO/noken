@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>io.kowalski</groupId>
-	<artifactId>nekot</artifactId>
+	<artifactId>noket</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>nekot</name>
+	<name>noket</name>
 
 	<organization>
 		<name>Kowalski.io</name>
@@ -38,7 +38,9 @@
 		<dropwizard.version>1.0.0-rc3</dropwizard.version>
 		<dropwizard-guicier.version>1.0.0.1</dropwizard-guicier.version>
 		<hazelcast.version>3.6.4</hazelcast.version>
+		<postgres.version>9.4.1208.jre7</postgres.version>
 		<jjwt.version>0.6.0</jjwt.version>
+		<lombok.version>1.16.8</lombok.version>
 		<guice.version>4.1.0</guice.version>
 		<junit.version>4.12</junit.version>
 	</properties>
@@ -64,6 +66,18 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${postgres.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.javalite</groupId>
+			<artifactId>activejdbc</artifactId>
+			<version>1.4.11</version>
+		</dependency>
+
+		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt</artifactId>
 			<version>${jjwt.version}</version>
@@ -82,6 +96,13 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
@@ -89,4 +110,23 @@
 		</dependency>
 
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.javalite</groupId>
+				<artifactId>activejdbc-instrumentation</artifactId>
+				<version>1.4.11</version>
+				<executions>
+					<execution>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>instrument</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
